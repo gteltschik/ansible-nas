@@ -6,6 +6,7 @@ immich_install_power_tools: false
 # directories
 immich_data_directory: "{{ docker_home }}/immich"
 immich_upload_directory: "{{ docker_home }}/immich/upload"
+immich_external_library_directory: ""
 
 # network
 immich_port: "2283"

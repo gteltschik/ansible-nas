@@ -8,6 +8,7 @@
       with_items:
         - "{{ immich_data_directory }}"
         - "{{ immich_upload_directory }}"
+        - "{{ immich_external_library_directory }}"
 
     - name: Create Immich network
       community.docker.docker_network:
@@ -85,6 +86,7 @@
         volumes:
           - "{{ immich_data_directory }}/data:/data:rw"
           - "{{ immich_upload_directory }}:/usr/src/app/upload:rw"
+          - "{{ immich_external_library_directory }}:/mnt/photos1:ro"
           - /etc/localtime:/etc/localtime:ro
         networks:
           - name: "{{ immich_network_name }}"

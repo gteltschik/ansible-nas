@@ -1,7 +1,7 @@
 ---
-- name: Start Pocket-ID
+- name: Start Pinchflat
   block:
-    - name: Create Pocket-ID Directories
+    - name: Create Pinchflat Directories
       ansible.builtin.file:
         path: "{{ item }}"
         state: directory
@@ -19,7 +19,7 @@
         group: "{{ pinchflat_group_id }}"
         recurse: yes
 
-    - name: Create Pocket-ID Docker Container
+    - name: Create Pinchflat Docker Container
       community.docker.docker_container:
         container_default_behavior: no_defaults
         name: "{{ pinchflat_container_name }}"
@@ -54,9 +54,9 @@
           traefik.http.services.pinchflat.loadbalancer.server.port: "8945"
   when: pinchflat_enabled is true
 
-- name: Stop Pocket-ID
+- name: Stop Pinchflat
   block:
-    - name: Stop Pocket-ID
+    - name: Stop Pinchflat
       community.docker.docker_container:
         name: "{{ pinchflat_container_name }}"
         state: absent

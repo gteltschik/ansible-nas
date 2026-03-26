@@ -16,9 +16,10 @@
         pull: true
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
-          - "{{ homarr_data_directory }}/configs:/app/data/configs"
-          - "{{ homarr_data_directory }}/icons:/app/public/icons"
-          - "{{ homarr_data_directory }}/data:/data"
+          - "{{ homarr_data_directory }}/appdata:/appdata"
+            #          - "{{ homarr_data_directory }}/configs:/app/data/configs"
+            #          - "{{ homarr_data_directory }}/icons:/app/public/icons"
+            #          - "{{ homarr_data_directory }}/data:/data"
         ports:
           - "{{ homarr_port }}:7575"
         env:
@@ -26,6 +27,7 @@
           UID: "{{ homarr_user_id | quote }}"
           GID: "{{ homarr_group_id | quote }}"
           DATABASE_URL: "{{ homarr_database_url }}"
+          SECRET_ENCRYPTION_KEY: "c46d900abce20af12072d8745b09b21346acffc65fa38d9a1ef0c7ccbb12051d"
 
           # Next Auth
           # You can generate a new secret on the command line with:

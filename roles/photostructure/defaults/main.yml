@@ -25,5 +25,6 @@ photostructure_volumes: # do not change!
   - "{{ photostructure_data_directory }}/logs:/ps/logs:rw"
   - "{{ photostructure_data_directory }}/tmp:/ps/tmp:rw"
 
-# photostructure_optional_volumes: # add list items here to mount additional volumes
-# - "/mnt/Pictures:/var/OtherPhotos:rw"
+photostructure_optional_volumes: # add list items here to mount additional volumes
+  # - "/mnt/Pictures:/var/OtherPhotos:rw"
+  - "{{ photostructure_photos_directory }}:/photos"
