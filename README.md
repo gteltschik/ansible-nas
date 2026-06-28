@@ -56,6 +56,7 @@ If you have a spare domain name you can configure applications to be accessible 
 - [Deluge](https://dev.deluge-torrent.org/) - A lightweight, Free Software, cross-platform BitTorrent client.
 - [Directus](https://github.com/directus/directus) - An instant REST+GraphQL API and intuitive no-code data collaboration app for any SQL database.
 - [Dockge](https://github.com/louislam/dockge) - A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager
+- [Docmost](https://github.com/docmost/docmost) - Open-source collaborative document editor and knowledge base
 - [DokuWiki](https://www.dokuwiki.org/) - A simple to use and highly versatile Open Source wiki software that doesn't require a database.
 - [Domain Watchdog](https://github.com/maelgangloff/domain-watchdog) - DNS domain monitoring tool
 - [Dozzle](https://github.com/amir20/dozzle) - Realtime log viewer for docker containers
@@ -84,6 +85,7 @@ If you have a spare domain name you can configure applications to be accessible 
 - [get_iplayer](https://github.com/get-iplayer/get_iplayer) - download programmes from BBC iplayer
 - [Ghost](https://ghost.org/) - Turn your audience into a business. Publishing, memberships, subscriptions and newsletters
 - [Ghostfolio](https://github.com/ghostfolio/ghostfolio) - Open Source Wealth Management Software
+- [Gramps Web](https://gramps-project.github.io/gramps-web/) - Web-based genealogy software for collaborative family tree research
 - [Gitea](https://gitea.io/en-us/) - Simple self-hosted GitHub clone
 - [GitLab](https://about.gitlab.com/features/) - Self-hosted GitHub clone of the highest order
 - [Glance](https://github.com/glanceapp/glance) - A self-hosted dashboard that puts all your feeds in one place
@@ -242,6 +244,7 @@ If you have a spare domain name you can configure applications to be accessible 
 - [Standard Notes](https://standardnotes.com/) - An end-to-end encrypted notes app
 - [Stirling-PDF](https://github.com/Frooodle/Stirling-PDF) - locally hosted web application that allows you to perform various operations on PDF files
 - [SuiteCRM](https://github.com/salesagility/SuiteCRM) - Open source CRM for the world
+- [Supabase](https://supabase.com/) - The open source Firebase alternative with Postgres, Auth, instant APIs, Edge Functions, Realtime, and Storage
 - [Super Productivity](https://github.com/johannesjo/super-productivity) - A free and open source to-do list and time tracker
 - [Syncthing](https://syncthing.net/) - sync directories with another device
 - [Tautulli](http://tautulli.com/) - Monitor Your Plex Media Server
