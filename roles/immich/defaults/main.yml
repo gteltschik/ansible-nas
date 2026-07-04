@@ -82,5 +82,5 @@ immich_env:
   MAPBOX_KEY: "{{ immich_mapbox_key }}"
   UPLOAD_LOCATION: "{{ immich_upload_location }}"
   PUBLIC_LOGIN_PAGE_MESSAGE: "{{ immich_public_login_page_message }}"
-  IMMICH_WORKERS_INCLUDE: 'api'
+  IMMICH_WORKERS_INCLUDE: 'api,microservices'
   IMMICH_METRICS: "{{ immich_metrics }}"
