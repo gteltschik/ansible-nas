@@ -120,6 +120,8 @@
       tags: [directus]
     - role: dockge
       tags: [dockge]
+    - role: docmost
+      tags: [docmost]
     - role: dokuwiki
       tags: [dokuwiki]
     - role: domain_watchdog
@@ -176,6 +178,8 @@
       tags: [ghost]
     - role: ghostfolio
       tags: [ghostfolio]
+    - role: grampsweb
+      tags: [grampsweb]
     - role: gitea
       tags: [gitea]
     - role: gitlab
@@ -490,6 +494,8 @@
       tags: [stirlingpdf]
     - role: suitecrm
       tags: [suitecrm]
+    - role: supabase
+      tags: [supabase]
     - role: superproductivity
       tags: [superproductivity]
     - role: syncthing
