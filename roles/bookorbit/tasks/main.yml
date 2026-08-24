@@ -86,9 +86,9 @@
         labels:
           traefik.enable: "{{ bookorbit_available_externally | string }}"
           traefik.http.routers.bookorbit.rule: "Host(`{{ bookorbit_hostname }}.{{ ansible_nas_domain }}`)"
-          # traefik.http.routers.bookorbit.tls.certresolver: "letsencrypt"
-          # traefik.http.routers.bookorbit.tls.domains[0].main: "{{ ansible_nas_domain }}"
-          # traefik.http.routers.bookorbit.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+          traefik.http.routers.bookorbit.tls.certresolver: "letsencrypt"
+          traefik.http.routers.bookorbit.tls.domains[0].main: "{{ ansible_nas_domain }}"
+          traefik.http.routers.bookorbit.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
           traefik.http.services.bookorbit.loadbalancer.server.port: "{{ bookorbit_port_container }}"
   when: bookorbit_enabled is true
 

@@ -30,7 +30,7 @@ bookorbit_group_id: "1000"
 
 # bookorbit specific settings
 bookorbit_timezone: "{{ ansible_nas_timezone }}"
-bookorbit_app_url: "https://{{ ansible_nas_domain }}:{{ bookorbit_port }}"
+bookorbit_app_url: "https://{{ ansible_hostname}}.{{ ansible_nas_domain }}"
 bookorbit_client_url: "{{ bookorbit_app_url }}"
 bookorbit_node_max_old_space_size: "2048"
 bookorbit_book_dock_path: "/data/book-dock"
@@ -44,6 +44,7 @@ bookorbit_csp_allow_cloudflare_insights: "false"
 bookorbit_db_name: "bookorbit"
 bookorbit_db_user: "bookorbit"
 bookorbit_db_pass: "your_secure_password"
+bookorbit_db_port: "5432"
 bookorbit_jwt_secret: "change-me-to-a-long-random-secret"
 bookorbit_setup_bootstrap_token: "change-me-to-a-long-random-secret"
 
@@ -51,8 +52,9 @@ bookorbit_setup_bootstrap_token: "change-me-to-a-long-random-secret"
 bookorbit_env:
   NODE_ENV: production
   PORT: "{{ bookorbit_port_container }}"
+  DATABASE_URL: "postgres://{{ bookorbit_db_user }}:{{ bookorbit_db_pass }}@{{ bookorbit_db_container_name }}:{{ bookorbit_db_port }}/{{ bookorbit_db_name }}"
   POSTGRES_HOST: "{{ bookorbit_db_container_name }}"
-  POSTGRES_PORT: "5432"
+  POSTGRES_PORT: "{{ bookorbit_db_port }}"
   POSTGRES_USER: "{{ bookorbit_db_user }}"
   POSTGRES_PASSWORD: "{{ bookorbit_db_pass }}"
   POSTGRES_DB: "{{ bookorbit_db_name }}"
@@ -73,7 +75,6 @@ bookorbit_env:
 
 # optional environment variables, override/extend in your inventory
 bookorbit_optional_env:
-  DATABASE_URL: "" # external PostgreSQL connection string; empty uses the bundled postgres
   # Recommended if you store SMTP provider credentials (generate: openssl rand -hex 32)
   EMAIL_ENCRYPTION_KEY: ""
   # Recommended if you store migration source credentials (generate: openssl rand -hex 32)
