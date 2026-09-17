@@ -36,6 +36,7 @@ If you have a spare domain name you can configure applications to be accessible 
 - [Blaze](https://github.com/blenderskool/blaze) - File sharing progressive web app
 - [Blocky](https://0xerr0r.github.io/blocky/) - Fast and lightweight DNS proxy as ad-blocker
 - [BookLore](https://github.com/booklore-app/booklore) - An open-source application for managing and organizing your digital book collection
+- [BookOrbit](https://bookorbit.app/) - A self-hosted ebook platform for managing and reading your digital library
 - [Budibase](https://github.com/Budibase/budibase) - Low code platform for building business apps and workflows in minutes
 - [Calibre](https://calibre-ebook.com) - Calibre is a powerful and easy to use e-book manager.
 - [Calibre-web](https://github.com/janeczku/calibre-web) - Provides a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.
@@ -234,6 +235,7 @@ If you have a spare domain name you can configure applications to be accessible 
 - [Silverbullet](https://silverbullet.md) - Note-taking application optimized for people with a hacker mindset
 - [Simplelogin](https://simplelogin.io/) - Receive and send emails anonymously
 - [SiYuan](https://github.com/siyuan-note/siyuan) - A privacy-first, self-hosted, fully open source personal knowledge management software
+- [Slskd](https://github.com/slskd/slskd) - A modern client-server application for the Soulseek file-sharing network
 - [Snipe-IT](https://snipeitapp.com/) - A free open source IT asset/license management system
 - [Sonarr](https://sonarr.tv/) - for downloading and managing TV episodes
 - [SparkyFitness](https://github.com/CodeWithCJ/SparkyFitness) - A self-hosted workout tracking application.
