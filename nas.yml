@@ -50,6 +50,8 @@
       tags: [affine]
     - role: airsonic
       tags: [airsonic]
+    - role: alexandrie
+      tags: [alexandrie]
     - role: apcupsd
       tags: [apcupsd]
     - role: appsmith
@@ -236,6 +238,8 @@
       tags: [icbinv]
     - role: immich
       tags: [immich]
+    - role: initiative
+      tags: [initiative]
     - role: input
       tags: [input]
     - role: invidious
@@ -378,6 +382,8 @@
       tags: [ombi]
     - role: openbooks
       tags: [openbooks]
+    - role: opengym
+      tags: [opengym]
     - role: openhab
       tags: [openhab]
     - role: openldap
@@ -452,6 +458,8 @@
       tags: [rsshub]
     - role: ryot
       tags: [ryot]
+    - role: sablier
+      tags: [sablier]
     - role: sabnzbd
       tags: [sabnzbd]
     - role: seafile
@@ -462,6 +470,8 @@
       tags: [scribblers]
     - role: shaarli
       tags: [shaarli]
+    - role: shelfmark
+      tags: [shelfmark]
     - role: shiori
       tags: [shiori]
     - role: servas

@@ -22,6 +22,7 @@ If you have a spare domain name you can configure applications to be accessible 
 - [Admidio](https://www.admidio.org/) - a free online membership management
 - [Adventure Log](https://github.com/seanmorley15/AdventureLog) - Self-hostable travel tracker and trip planner.
 - [Airsonic](https://airsonic.github.io/) - catalog and stream music
+- [Alexandrie](https://github.com/Smaug6739/Alexandrie) - A self-hosted, open-source knowledge base with an extended Markdown editor
 - [Apcupsd](http://www.apcupsd.org/) - A daemon for controlling APC UPSes
 - [Appsmith](https://www.appsmith.com/) - low-code application platform to quickly build, deploy, and manage effective software
 - [Arcane](https://github.com/ofkm/arcane) - A self-hosted platform for managing and deploying applications with Docker
@@ -116,6 +117,7 @@ If you have a spare domain name you can configure applications to be accessible 
 - [Immich](https://immich.app/) - Self-hosted photo and video backup solution directly from your mobile phone.
 - [Input](https://github.com/deck9/input) - A privacy-focused, no-code, open-source form builder.
 - [Influxdb](https://github.com/influxdata/influxdb) - Time series database used for stats collection
+- [Initiative](https://github.com/beyonders-studio/initiative) - A shared workspace for projects, tasks, files, calendars and wikis
 - [Invidious](https://invidious.io/) - An open source alternative front-end to YouTube
 - [iSpy Agent DVR](https://www.ispyconnect.com/) - iSpy - Agent DVR is a video surveillance software
 - [Jackett](https://github.com/Jackett/Jackett) - API Support for your favorite torrent trackers
@@ -185,6 +187,7 @@ If you have a spare domain name you can configure applications to be accessible 
 - [OliveTin](https://github.com/OliveTin/OliveTin) - safe and simple access to predefined shell commands
 - [Ombi](https://ombi.io/) - web application that automatically gives your users the ability to request content
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
+- [OpenGym](https://github.com/DuarteSantos8/openGym) - A self-hosted gym and body-weight tracker with routines, workouts, progress and passkey sign-in
 - [openHAB](https://www.openhab.org/) - A vendor and technology agnostic open source automation software for your home
 - [openLDAP](https://www.openldap.org/) - An open source implementation of the Lightweight Directory Access Protocol
 - [Open-resume](https://github.com/xitanggg/open-resume) - A powerful open-source resume builder and resume parser
@@ -224,12 +227,14 @@ If you have a spare domain name you can configure applications to be accessible 
 - [RSS-Bridge](https://rss-bridge.github.io/rss-bridge/) - The RSS feed for websites missing it
 - [RSSHub](https://github.com/DIYgod/RSSHub) - An open source, easy to use, and extensible RSS feed generator.
 - [Ryot](https://github.com/ignisda/ryot) - A self hosted platform for tracking various facets of your life - media, fitness etc.
+- [Sablier](https://sablierapp.dev/) - Start your containers on demand, and shut them down automatically when there is no activity
 - [Sabnzbd](https://sabnzbd.org/) - A powerful usenet downloader that FreeNAS provides
 - [Seafile](https://www.seafile.com/en/home/) - High performance file syncing and sharing
 - [SearxNG](https://github.com/searxng/searxng) - Free internet metasearch engine
 - [Scribble.rs](https://github.com/scribble-rs/scribble.rs) - A skribbl.io alternative
 - [Servas](https://github.com/beromir/Servas) - A self-hosted bookmark management tool
 - [Shaarli](https://github.com/shaarli/Shaarli) - Personal, minimalist, super-fast, database free, bookmarking service
+- [Shelfmark](https://github.com/calibrain/shelfmark) - Search multiple sources for books and audiobooks and download them to your library
 - [Shiori](https://github.com/go-shiori/shiori) - Simple bookmark manager built with Go
 - [Sickchill](https://sickchill.github.io/) - for managing TV episodes
 - [Silverbullet](https://silverbullet.md) - Note-taking application optimized for people with a hacker mindset

@@ -6,6 +6,7 @@ bookorbit_available_externally: false
 bookorbit_data_directory: "{{ docker_home }}/bookorbit"
 bookorbit_app_data_directory: "{{ bookorbit_data_directory }}/app"
 bookorbit_postgres_data_directory: "{{ bookorbit_data_directory }}/postgres"
+bookorbit_import_directory: "{{ bookorbit_data_directory }}/import"
 bookorbit_books_directory: "{{ books_root }}"
 
 # network
@@ -30,15 +31,22 @@ bookorbit_group_id: "1000"
 
 # bookorbit specific settings
 bookorbit_timezone: "{{ ansible_nas_timezone }}"
-bookorbit_app_url: "https://{{ ansible_hostname}}.{{ ansible_nas_domain }}"
+bookorbit_app_url: "https://{{ bookorbit_hostname }}.{{ ansible_nas_domain }}"
 bookorbit_client_url: "{{ bookorbit_app_url }}"
 bookorbit_node_max_old_space_size: "2048"
-bookorbit_book_dock_path: "/data/book-dock"
+bookorbit_book_dock_path: "/import"
 bookorbit_library_browse_root: "/books"
 bookorbit_fix_permissions: "true"
 bookorbit_log_level: "info"
 bookorbit_oidc_allow_local_issuers: "false"
+bookorbit_disable_local_auth: "false"
 bookorbit_csp_allow_cloudflare_insights: "false"
+bookorbit_host: "0.0.0.0"
+# In-container path to a PEM CA bundle trusted for outbound TLS, needed when an OIDC
+# provider uses a private certificate authority. The app data directory is mounted at
+# /data, so a bundle dropped in bookorbit_app_data_directory works as /data/<file>.pem
+# without an extra mount. Leave empty to keep NODE_EXTRA_CA_CERTS unset.
+bookorbit_node_extra_ca_certs: ""
 
 # database settings
 bookorbit_db_name: "bookorbit"
@@ -52,6 +60,7 @@ bookorbit_setup_bootstrap_token: "change-me-to-a-long-random-secret"
 bookorbit_env:
   NODE_ENV: production
   PORT: "{{ bookorbit_port_container }}"
+  HOST: "{{ bookorbit_host }}"
   DATABASE_URL: "postgres://{{ bookorbit_db_user }}:{{ bookorbit_db_pass }}@{{ bookorbit_db_container_name }}:{{ bookorbit_db_port }}/{{ bookorbit_db_name }}"
   POSTGRES_HOST: "{{ bookorbit_db_container_name }}"
   POSTGRES_PORT: "{{ bookorbit_db_port }}"
@@ -71,6 +80,8 @@ bookorbit_env:
   BOOKORBIT_FIX_PERMISSIONS: "{{ bookorbit_fix_permissions }}"
   LOG_LEVEL: "{{ bookorbit_log_level }}"
   OIDC_ALLOW_LOCAL_ISSUERS: "{{ bookorbit_oidc_allow_local_issuers }}"
+  DISABLE_LOCAL_AUTH: "{{ bookorbit_disable_local_auth }}"
+  NODE_EXTRA_CA_CERTS: "{{ bookorbit_node_extra_ca_certs }}"
   CSP_ALLOW_CLOUDFLARE_INSIGHTS: "{{ bookorbit_csp_allow_cloudflare_insights }}"
 
 # optional environment variables, override/extend in your inventory
@@ -79,9 +90,14 @@ bookorbit_optional_env:
   EMAIL_ENCRYPTION_KEY: ""
   # Recommended if you store migration source credentials (generate: openssl rand -hex 32)
   MIGRATION_ENCRYPTION_KEY: ""
+  # Required before a download client or indexer can be saved; credentials are refused
+  # rather than stored in the clear without it (generate: openssl rand -hex 32)
+  BOOK_REQUEST_ENCRYPTION_KEY: ""
   # Absolute container path that authorizes local migration backup files.
-  # Mount a dedicated host directory at this path as read-only before enabling backup mode.
+  # This role mounts bookorbit_import_directory at /import read-only; set this to /import to use it.
   MIGRATION_IMPORT_ROOT: ""
+  # Optional GitHub token used to read release notes, raising the anonymous API rate limit
+  GITHUB_RELEASES_TOKEN: ""
 
 # database env dictionary for the container and for merging with optional environment variables
 bookorbit_db_env:
@@ -89,3 +105,54 @@ bookorbit_db_env:
   POSTGRES_PASSWORD: "{{ bookorbit_db_pass }}"
   POSTGRES_DB: "{{ bookorbit_db_name }}"
   PGDATA: "/var/lib/postgresql/data/pgdata"
+
+# external metadata providers
+# https://github.com/bookorbit/bookorbit-metadata-providers
+# Each provider runs as a small container on the BookOrbit network and is added in
+# BookOrbit under Settings > Metadata > Providers > External, using
+# http://<container_name>:8080 as the address with "Allow private address" turned on.
+# Providers are off by default; list the keys of the ones to run.
+bookorbit_metadata_providers_enabled: []
+bookorbit_metadata_provider_image_version: "latest"
+bookorbit_metadata_provider_memory: "128m"
+
+# extra environment variables per provider, keyed by provider key, for example:
+# bookorbit_metadata_providers_optional_env:
+#   douban:
+#     DOUBAN_COOKIE: "bid=...; dbcl2=..."
+#   fantlab:
+#     AUTH_TOKEN: "change-me"
+bookorbit_metadata_providers_optional_env: {}
+
+# provider definitions, extend or override in your inventory
+bookorbit_metadata_providers:
+  - key: audiosilo
+    container_name: bookorbit-audiosilo
+    image_name: "ghcr.io/bookorbit/audiosilo-provider"
+  - key: douban
+    container_name: bookorbit-douban
+    image_name: "ghcr.io/bookorbit/douban-provider"
+  - key: fantlab
+    container_name: bookorbit-fantlab
+    image_name: "ghcr.io/bookorbit/fantlab-provider"
+  - key: jnovelclub
+    container_name: bookorbit-jnovelclub
+    image_name: "ghcr.io/bookorbit/jnovelclub-provider"
+  - key: libris
+    container_name: bookorbit-libris
+    image_name: "ghcr.io/bookorbit/libris-provider"
+  - key: lubimyczytac
+    container_name: bookorbit-lubimyczytac
+    image_name: "ghcr.io/bookorbit/lubimyczytac-provider"
+  - key: mangabaka
+    container_name: bookorbit-mangabaka
+    image_name: "ghcr.io/bookorbit/mangabaka-provider"
+  - key: romanceio
+    container_name: bookorbit-romanceio
+    image_name: "ghcr.io/bookorbit/romanceio-provider"
+  - key: soundbooththeater
+    container_name: bookorbit-soundbooththeater
+    image_name: "ghcr.io/bookorbit/soundbooththeater-provider"
+  - key: yandexbooks
+    container_name: bookorbit-yandexbooks
+    image_name: "ghcr.io/bookorbit/yandexbooks-provider"
